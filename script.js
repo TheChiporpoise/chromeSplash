@@ -57,80 +57,20 @@ function pause() {
 //     }
 // }
 
-// Makes text type out when page is opened. Looks metal as freak, definitely need to try to condense/speed this up later
-var welcomeText = "_";
-var searchText = "_"
-var mailText = "_";
-var imagesText = "_";
+// Makes text type out when page is opened. Looks metal as freak
+var welcomeText = "_", wText_Store = ["W_","We_","Wel_","Welc_","Welco_","Welcom_","Welcome"]; // 7
+var searchText = "_", sText_Store = ["S_","Se_","Sea_","Sear_","Searc_","Search_","Search _","Search G_","Search Go_","Search Goo_","Search Goog_","Search Googl_","Search Google"]; // 13
+var mailText = "_", mText_Store = ["G_","Gm_","Gma_","Gmai_","Gmail"]; // 5
+var imagesText = "_", iText_Store = ["I_","Im_","Ima_","Imag_","Image_","Images"]; // 6
 function updateText() {
-    if (welcomeText[0] == "_") {
-        welcomeText = "W_";
-    } else if (welcomeText.length < 3) {
-        welcomeText = "We_";
-    } else if (welcomeText.length < 4) {
-        welcomeText = "Wel_";
-    } else if (welcomeText.length < 5) {
-        welcomeText = "Welc_";
-    } else if (welcomeText.length < 6) {
-        welcomeText = "Welco_";
-    } else if (welcomeText.length < 7) {
-        welcomeText = "Welcom_";
-    } else if (welcomeText[6] == "_"){
-        welcomeText = "Welcome";
-    } else {
-        if (searchText[0] == "_") {
-            searchText = "S_"
-        } else if (searchText.length < 3) {
-            searchText = "Se_"
-        } else if (searchText.length < 4) {
-            searchText = "Sea_"
-        } else if (searchText.length < 5) {
-            searchText = "Sear_"
-        } else if (searchText.length < 6) {
-            searchText = "Searc_"
-        } else if (searchText.length < 7) {
-            searchText = "Search_"
-        } else if (searchText.length < 8) {
-            searchText = "Search _"
-        } else if (searchText.length < 9) {
-            searchText = "Search G_"
-        } else if (searchText.length < 10) {
-            searchText = "Search Go_"
-        } else if (searchText.length < 11) {
-            searchText = "Search Goo_"
-        } else if (searchText.length < 12) {
-            searchText = "Search Goog_"
-        } else if (searchText.length < 13) {
-            searchText = "Search Googl_"
-        } else if (searchText[12] == "_") {
-            searchText = "Search Google"
-        } else {
-            if (mailText[0] == "_") {
-                mailText = "G_";
-            } else if (mailText.length < 3) {
-                mailText = "Gm_";
-            } else if (mailText.length < 4) {
-                mailText = "Gma_";
-            } else if (mailText.length < 5) {
-                mailText = "Gmai_";
-            } else if (mailText[4] == "_") {
-                mailText = "Gmail";
-            } else {
-                if (imagesText[0] == "_") {
-                    imagesText = "I_";
-                } else if (imagesText.length < 3) {
-                    imagesText = "Im_";
-                } else if (imagesText.length < 4) {
-                    imagesText = "Ima_";
-                } else if (imagesText.length < 5) {
-                    imagesText = "Imag_";
-                } else if (imagesText.length < 6) {
-                    imagesText = "Image_";
-                } else {
-                    imagesText = "Images";
-                }
-            }
-        }
+    if (welcomeText[welcomeText.length - 1] == "_") {
+        welcomeText = wText_Store[welcomeText.length - 1];
+    } else if (searchText[searchText.length - 1] == "_") {
+        searchText = sText_Store[searchText.length - 1];
+    } else if (mailText[mailText.length - 1] == "_") {
+        mailText = mText_Store[mailText.length - 1];
+    } else if (imagesText[imagesText.length - 1] == "_") {
+        imagesText = iText_Store[imagesText.length - 1];
     }
     document.getElementById("welcomeText").innerHTML = welcomeText;
     document.getElementById("searchBox").placeholder = searchText;
@@ -139,8 +79,8 @@ function updateText() {
 }
 
 function draw() {
-    // initial if makes the check faster... I think
-    if (frameCount < 200) {
+    // initial "if" being separated makes the check faster... I think
+    if (frameCount < 140) {
         if (frameCount % 4 == 0 && frameCount > 15) {
             updateText();
         }
@@ -207,7 +147,7 @@ function draw() {
                 // add 6 or 11 to "s + shapeNum" in the first point for interesting results
                 line(
                     circR * cos(radians(rot + (intAng * (s + shapeNum)))) + center.x,
-                    circR * sin(radians(rot + (intAng * shapeNum))) + center.y,
+                    circR * sin(radians(rot + (intAng * (shapeNum)))) + center.y,
                     circR * cos(radians(rot + (intAng * (s + shapeNum + 1)))) + center.x,
                     circR * sin(radians(rot + (intAng * (shapeNum + 1)))) + center.y,
                 );
