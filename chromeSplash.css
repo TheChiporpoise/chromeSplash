@@ -97,7 +97,9 @@ a:hover, a:active {
 #searchBox {
     height: 40px;
     width: 650px;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 14pt;
+    font-weight: bold;
     position: relative;
     border: none;
     background: none;

@@ -57,30 +57,91 @@ function pause() {
 //     }
 // }
 
-var splashText = "_"
-
+// Makes text type out when page is opened. Looks metal as freak, definitely need to try to condense/speed this up later
+var welcomeText = "_";
+var searchText = "_"
+var mailText = "_";
+var imagesText = "_";
 function updateText() {
-    if (splashText[0] == "_") {
-        splashText = "W_"
-    } else if (splashText.length == 2) {
-        splashText = "We_"
-    } else if (splashText.length == 3) {
-        splashText = "Wel_"
-    } else if (splashText.length == 4) {
-        splashText = "Welc_"
-    } else if (splashText.length == 5) {
-        splashText = "Welco_"
-    } else if (splashText.length == 6) {
-        splashText = "Welcom_"
+    if (welcomeText[0] == "_") {
+        welcomeText = "W_";
+    } else if (welcomeText.length < 3) {
+        welcomeText = "We_";
+    } else if (welcomeText.length < 4) {
+        welcomeText = "Wel_";
+    } else if (welcomeText.length < 5) {
+        welcomeText = "Welc_";
+    } else if (welcomeText.length < 6) {
+        welcomeText = "Welco_";
+    } else if (welcomeText.length < 7) {
+        welcomeText = "Welcom_";
+    } else if (welcomeText[6] == "_"){
+        welcomeText = "Welcome";
     } else {
-        splashText = "Welcome"
+        if (searchText[0] == "_") {
+            searchText = "S_"
+        } else if (searchText.length < 3) {
+            searchText = "Se_"
+        } else if (searchText.length < 4) {
+            searchText = "Sea_"
+        } else if (searchText.length < 5) {
+            searchText = "Sear_"
+        } else if (searchText.length < 6) {
+            searchText = "Searc_"
+        } else if (searchText.length < 7) {
+            searchText = "Search_"
+        } else if (searchText.length < 8) {
+            searchText = "Search _"
+        } else if (searchText.length < 9) {
+            searchText = "Search G_"
+        } else if (searchText.length < 10) {
+            searchText = "Search Go_"
+        } else if (searchText.length < 11) {
+            searchText = "Search Goo_"
+        } else if (searchText.length < 12) {
+            searchText = "Search Goog_"
+        } else if (searchText.length < 13) {
+            searchText = "Search Googl_"
+        } else if (searchText[12] == "_") {
+            searchText = "Search Google"
+        } else {
+            if (mailText[0] == "_") {
+                mailText = "G_";
+            } else if (mailText.length < 3) {
+                mailText = "Gm_";
+            } else if (mailText.length < 4) {
+                mailText = "Gma_";
+            } else if (mailText.length < 5) {
+                mailText = "Gmai_";
+            } else if (mailText[4] == "_") {
+                mailText = "Gmail";
+            } else {
+                if (imagesText[0] == "_") {
+                    imagesText = "I_";
+                } else if (imagesText.length < 3) {
+                    imagesText = "Im_";
+                } else if (imagesText.length < 4) {
+                    imagesText = "Ima_";
+                } else if (imagesText.length < 5) {
+                    imagesText = "Imag_";
+                } else if (imagesText.length < 6) {
+                    imagesText = "Image_";
+                } else {
+                    imagesText = "Images";
+                }
+            }
+        }
     }
-    document.getElementById("welcomeText").innerHTML = splashText;
+    document.getElementById("welcomeText").innerHTML = welcomeText;
+    document.getElementById("searchBox").placeholder = searchText;
+    document.getElementById("mailText").innerHTML = mailText;
+    document.getElementById("imagesText").innerHTML = imagesText;
 }
 
 function draw() {
-    if (frameCount < 56) {
-        if (frameCount % 5 == 0 && frameCount > 20) {
+    // initial if makes the check faster... I think
+    if (frameCount < 200) {
+        if (frameCount % 4 == 0 && frameCount > 15) {
             updateText();
         }
     }
@@ -100,7 +161,6 @@ function draw() {
     } else if (b > 0 && b <= 255) {
         (r < 255) ? r += 5 : b -= 5;
     }
-    // document.getElementById("rgb").innerHTML = splashText.length - 1;
 
     if (ns != nsStore) {
         nS();
@@ -144,6 +204,7 @@ function draw() {
                     circR * sin(radians(rot + (intAng * (shapeNum + 1)))) + center.y
                 );
             } else {
+                // add 6 or 11 to "s + shapeNum" in the first point for interesting results
                 line(
                     circR * cos(radians(rot + (intAng * (s + shapeNum)))) + center.x,
                     circR * sin(radians(rot + (intAng * shapeNum))) + center.y,
