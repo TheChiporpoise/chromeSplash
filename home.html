@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <html lang = "English"> -->
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width">
+    <title>Welcome</title>
+    <link rel = "stylesheet" href = "chromeSplash.css">
+
+    <script src = "p5.min.js"></script>
+    <script src = "script.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="https://mail.google.com/mail/?tab=rm&ogbl">Gmail</a>
+            <a href="https://www.google.com/imghp?hl=en&tab=ri&ogbl">Images</a>
+        </nav>
+    </header>
+    <div class = "centered">
+        <h1 id = "welcomeText">_</h1>
+    </div> 
+    
+    <div class = "centered">
+        <div class = "searchContainer">
+            <div id = "image" class = "centered">
+                <img src = "searchBar.png" alt = "Background for searchbar" width = "750" height = "47">
+            </div>
+            <div class = "searchImg">
+                <img src = "search_icon.png" alt = "Magnifying glass on search bar" width = "18" height = "18">
+            </div>
+            <div>
+                <form action="https://www.google.com/search" class="searchform" method="get" name="searchform"> 
+                    <input id = "searchBox" autocomplete="on" class="form-control search" name="q" placeholder="Search Google" required="required"  type="text">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class = "footer">
+        <div class = "centered">
+            <button type = "button" onclick = "rotDir *= -1"><span id = "rotDir"></span></button>
+            <button type = "button" onclick = "paused = !paused"><span id = "pause"></span></button>
+            <button type = "button" onclick = "ns -= ((ns > 2) ? 1 : 0)">-</button>
+            <div class = "nsContainer">
+                <span id = "ns"></span>
+            </div>
+            <button type = "button" onclick = "ns += ((ns < 30) ? 1 : 0)">+</button>
+            <button type = "button" onclick = "mode = mode ? 0 : 1">Mode</button>
+            <!-- <span id = "mode"></span> -->
+            <button type = "button" onclick = "ns = 3; paused = false; rotDir = 1; mode = 0;">Reset</button>
+        </div>
+        <!-- <div style = "display: flex; flex-direction: row; align-items: right; justify-content: right;">
+            <span id = "rgb"></span>
+        </div> -->
+        <div>
+            <br>
+        </div>
+    </div>
+</body>
+</html>
