@@ -137,7 +137,7 @@ function draw() {
         for (var s = 0; s < ns; s++) {
             if (mode) {
                 point(
-                    circR * cos(radians(rot + (intAng * (s + shapeNum)))) + center.x,
+                    circR * cos(radians(rot + (intAng * (6 + s + shapeNum)))) + center.x,
                     circR * sin(radians(rot + (intAng * shapeNum))) + center.y);
                 point(
                     circR * cos(radians(rot + (intAng * (s + shapeNum + 1)))) + center.x,

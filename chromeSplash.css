@@ -18,6 +18,15 @@ h1 {
     font-family: 'Courier New', Courier, monospace;
 }
 
+form {
+    /* position: relative; */
+    /* width: 740px;
+    height: 498px; */
+    margin: 0 auto;
+    /* padding: 1em;
+    box-sizing: border-box; */
+}
+
 canvas {
     position: absolute;
     top: 0;
