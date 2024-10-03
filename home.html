@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset = "UTF-8">
-    <meta name = "viewport" content = "width = device-width">
+    <meta name = "viewport" content = "width = device-width, initial-scale=1.0">
     <title>Welcome</title>
     <link rel = "stylesheet" href = "chromeSplash.css">
 
@@ -16,27 +16,27 @@
             <a id = "mailText" href="https://mail.google.com/mail/?tab=rm&ogbl">_</a>
             <a id = "imagesText" href="https://www.google.com/imghp?hl=en&tab=ri&ogbl">_</a>
         </nav>
+        <div class = "centered">
+            <h1 id = "welcomeText">_</h1>
+        </div> 
     </header>
-    <div class = "centered">
-        <h1 id = "welcomeText">_</h1>
-    </div> 
-    
-    <div class = "centered">
-        <div class = "searchContainer">
-            <div id = "image" class = "centered">
-                <img src = "searchBar.png" alt = "Background for searchbar" width = "750" height = "47">
-            </div>
-            <div class = "searchImg">
-                <img src = "search_icon.png" alt = "Magnifying glass on search bar" width = "18" height = "18">
-            </div>
-            <div>
-                <form action="https://www.google.com/search" class="searchform" method="get" name="searchform"> 
-                    <input id = "searchBox" autocomplete="on" class="form-control search" name="q" placeholder="_" required="required"  type="text">
-                </form>
+    <main>
+        <div class = "centered">
+            <div class = "searchContainer">
+                <div id = "image" class = "centered">
+                    <img src = "searchBar.png" alt = "Background for searchbar" width = "750" height = "47">
+                </div>
+                <div class = "searchImg">
+                    <img src = "search_icon.png" alt = "Magnifying glass on search bar" width = "18" height = "18">
+                </div>
+                <div>
+                    <form action="https://www.google.com/search" class="searchform" method="get" name="searchform"> 
+                        <input id = "searchBox" autocomplete="on" class="form-control search" name="q" placeholder="_" required="required"  type="text">
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-
+    </main>
     <div class = "footer">
         <div class = "centered">
             <button type = "button" onclick = "rotDir *= -1"><span id = "rotDir"></span></button>
