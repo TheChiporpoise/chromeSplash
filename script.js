@@ -65,21 +65,21 @@ var imagesText = "_", iText_Store = ["I_","Im_","Ima_","Imag_","Image_","Images"
 function updateText() {
     if (welcomeText[welcomeText.length - 1] == "_") {
         welcomeText = wText_Store[welcomeText.length - 1];
+        document.getElementById("welcomeText").innerHTML = welcomeText;
     } else if (searchText[searchText.length - 1] == "_") {
         searchText = sText_Store[searchText.length - 1];
+        document.getElementById("searchBox").placeholder = searchText;
     } else if (mailText[mailText.length - 1] == "_") {
         mailText = mText_Store[mailText.length - 1];
-    } else if (imagesText[imagesText.length - 1] == "_") {
+        document.getElementById("mailText").innerHTML = mailText;
+    } else {
         imagesText = iText_Store[imagesText.length - 1];
+        document.getElementById("imagesText").innerHTML = imagesText;
     }
-    document.getElementById("welcomeText").innerHTML = welcomeText;
-    document.getElementById("searchBox").placeholder = searchText;
-    document.getElementById("mailText").innerHTML = mailText;
-    document.getElementById("imagesText").innerHTML = imagesText;
 }
 
 function draw() {
-    // initial "if" being separated makes the check faster... I think
+    // initial "if" being separated makes the check faster once the function has finished running... I think
     if (frameCount < 140) {
         if (frameCount % 4 == 0 && frameCount > 15) {
             updateText();
