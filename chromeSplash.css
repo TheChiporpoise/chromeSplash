@@ -19,12 +19,9 @@ h1 {
 }
 
 form {
-    /* position: relative; */
-    /* width: 740px;
-    height: 498px; */
-    margin: 0 auto;
-    /* padding: 1em;
-    box-sizing: border-box; */
+    *:focus {
+        outline: none;
+    }
 }
 
 canvas {
