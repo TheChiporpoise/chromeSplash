@@ -107,17 +107,17 @@ function draw() {
     
     if (mode != modeStore) {
         refresh();
-        // document.getElementById("mode").innerHTML = mode;
         modeStore = mode;
     }
-
+    
     if (paused) {
     } else if (rot < 180 - A) {
         (0 < rotDir) ? rot += 0.5 : rot -= 0.5;
     } else {
         rot = 0;
     }
-
+    // document.getElementById("angle").innerHTML = Math.round(rot);
+    
     stroke(r,g,b);
 
     // point(center.x,center.y) // screen center test
