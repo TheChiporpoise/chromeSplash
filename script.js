@@ -38,30 +38,12 @@ function pause() {
     document.getElementById("pause").innerHTML = ((paused) ? "\u25b6" : "❚❚");
 }
 
-// Not such a great idea if there's a search bar we need to be able to type in lol
-// function keyPressed() {
-//     document.getElementById("rgb").innerHTML = key;
-//     if (key === '=') {
-//         ns += ((ns < 30) ? 1 : 0)
-//     }
-//     if (key === '-') {
-//         ns -= ((ns > 2) ? 1 : 0)
-//     }
-
-//     if (key === ' ') {
-//         paused = !paused;
-//     }
-
-//     if (key === "Backspace") {
-//         background(0,0,0,500);
-//     }
-// }
-
 // Makes text type out when page is opened. Looks metal as freak
 var welcomeText = "_", wText_Store = ["W_","We_","Wel_","Welc_","Welco_","Welcom_","Welcome"]; // 7
 var searchText = "_", sText_Store = ["S_","Se_","Sea_","Sear_","Searc_","Search_","Search _","Search G_","Search Go_","Search Goo_","Search Goog_","Search Googl_","Search Google"]; // 13
 var mailText = "_", mText_Store = ["G_","Gm_","Gma_","Gmai_","Gmail"]; // 5
 var imagesText = "_", iText_Store = ["I_","Im_","Ima_","Imag_","Image_","Images"]; // 6
+var shortNum = 1;
 function updateText() {
     if (welcomeText[welcomeText.length - 1] == "_") {
         welcomeText = wText_Store[welcomeText.length - 1];
@@ -72,17 +54,26 @@ function updateText() {
     } else if (mailText[mailText.length - 1] == "_") {
         mailText = mText_Store[mailText.length - 1];
         document.getElementById("mailText").innerHTML = mailText;
-    } else {
+    } else if (imagesText[imagesText.length - 1] == "_") {
         imagesText = iText_Store[imagesText.length - 1];
         document.getElementById("imagesText").innerHTML = imagesText;
+    } else {
+        document.getElementById("short" + shortNum).style.opacity = "1";
+        shortNum++;
     }
 }
 
 function draw() {
     // initial "if" being separated makes the check faster once the function has finished running... I think
-    if (frameCount < 140) {
-        if (frameCount % 4 == 0 && frameCount > 15) {
-            updateText();
+    if (frameCount < 220) {
+        if (frameCount < 140) {
+            if (frameCount % 4 == 0 && frameCount > 15) {
+                updateText();
+            }
+        } else {
+            if (frameCount % 8 == 0) {
+                updateText();
+            }
         }
     }
 
@@ -153,5 +144,13 @@ function draw() {
                 );
             }
         }
+    }
+}
+
+function windowResized(){
+    resizeCanvas(windowWidth, windowHeight);
+    center = {
+        "x" : Math.round(window.innerWidth / 2),
+        "y" : Math.round(window.innerHeight / 2)
     }
 }
