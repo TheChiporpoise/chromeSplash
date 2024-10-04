@@ -153,4 +153,7 @@ function windowResized(){
         "x" : Math.round(window.innerWidth / 2),
         "y" : Math.round(window.innerHeight / 2)
     }
+
+    circR = Math.round(Math.min(window.innerHeight,window.innerWidth) / 3);
+    inR = Math.round(circR / 2);
 }
