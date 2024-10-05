@@ -38,7 +38,7 @@ function pause() {
     document.getElementById("pause").innerHTML = ((paused) ? "\u25b6" : "❚❚");
 }
 
-// Makes text type out when page is opened. Looks metal as freak
+// Makes text type out and shortcuts appear sequentially when page is opened/realoaded. Looks metal as freak
 var welcomeText = "_", wText_Store = ["W_","We_","Wel_","Welc_","Welco_","Welcom_","Welcome"]; // 7
 var searchText = "_", sText_Store = ["S_","Se_","Sea_","Sear_","Searc_","Search_","Search _","Search G_","Search Go_","Search Goo_","Search Goog_","Search Googl_","Search Google"]; // 13
 var mailText = "_", mText_Store = ["G_","Gm_","Gma_","Gmai_","Gmail"]; // 5
