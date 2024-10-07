@@ -39,7 +39,7 @@ function pause() {
 }
 
 // Makes text type out and shortcuts appear sequentially when page is opened/realoaded. Looks metal as freak
-var welcomeText = "_", wText_Store = ["W_","We_","Wel_","Welc_","Welco_","Welcom_","Welcome"]; // 7
+var welcomeText = "_", wText_Store = ["W_","We_","Wel_","Welc_","Welco_","Welcom_","Welcome"/*"K_","Kn_","Kno_","Knoc_","Knock_","Knock,_","Knock, _","Knock, K_","Knock, Kn_","Knock, Kno_","Knock, Knoc_","Knock, Knock"*/]; // 7
 var searchText = "_", sText_Store = ["S_","Se_","Sea_","Sear_","Searc_","Search_","Search _","Search G_","Search Go_","Search Goo_","Search Goog_","Search Googl_","Search Google"]; // 13
 var mailText = "_", mText_Store = ["G_","Gm_","Gma_","Gmai_","Gmail"]; // 5
 var imagesText = "_", iText_Store = ["I_","Im_","Ima_","Imag_","Image_","Images"]; // 6
@@ -59,13 +59,14 @@ function updateText() {
         document.getElementById("imagesText").innerHTML = imagesText;
     } else {
         document.getElementById("short" + shortNum).style.opacity = "1";
+        document.getElementById("short" + (5 + shortNum)).style.opacity = "1";
         shortNum++;
     }
 }
 
 function draw() {
     // initial "if" being separated makes the check faster once the function has finished running... I think
-    if (frameCount < 220) {
+    if (frameCount < 180) {
         if (frameCount < 140) {
             if (frameCount % 4 == 0 && frameCount > 15) {
                 updateText();
@@ -145,6 +146,9 @@ function draw() {
             }
         }
     }
+    
+    // rot += 0.1;
+    // point(40 * cos(rot / 10) + 100 * cos(rot * 7 / 10) + 30 * cos(rot / 10) + center.x,40 * sin(rot / 10) + 100 * sin(rot * 7 / 10) + 30 * sin(rot / 10) + center.y);
 }
 
 function windowResized(){
