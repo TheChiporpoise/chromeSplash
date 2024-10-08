@@ -11,16 +11,25 @@ body {
 }
 
 header {
+    min-width: 950px;
     nav {
         text-align: right;
     }
 }
 
+main {
+    width: 100%;
+    min-width: 950px;
+}
+
 footer {
+    width: 100%;
+    min-width: 950px;
+
     position: fixed;
     left: 0;
     bottom: 0;
-    width: 100%;
+    
     color: white;
     text-align: center;
 
@@ -38,6 +47,7 @@ footer {
 
 aside {
     width: 50%;
+    min-width: 475px;
     margin-top: 20px;
 
     display: flex;
@@ -122,6 +132,8 @@ canvas {
     left: 0;
     background-color: black;
     z-index: -1;
+
+    /* min-width: 950px; */
 }
 
 button {
@@ -145,6 +157,7 @@ a:hover, a:active {
 .centered {
     display: flex;
     flex-direction: row;
+
     align-items: center;
     justify-content: center;
 }
