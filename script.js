@@ -119,7 +119,7 @@ function draw() {
     } else {
         rot = 0;
     }
-    document.getElementById("angle").innerHTML = rot;
+    // document.getElementById("angle").innerHTML = rot;
     
     stroke(r,g,b);
 
