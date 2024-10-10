@@ -36,6 +36,7 @@ function dir() {
 
 function pause() {
     document.getElementById("pause").innerHTML = ((paused) ? "\u25b6" : "❚❚");
+    pausedStore = paused;
 }
 
 // Makes text type out and shortcuts appear sequentially when page is opened/realoaded. Looks metal as freak
@@ -55,10 +56,12 @@ function updateText() {
     } else if (mailText[mailText.length - 1] == "_") {
         mailText = mText_Store[mailText.length - 1];
         document.getElementById("mailText").innerHTML = mailText;
-    } else if (imagesText[imagesText.length - 1] == "_") {
+    } else /*if (imagesText[imagesText.length - 1] == "_")*/ {
         imagesText = iText_Store[imagesText.length - 1];
         document.getElementById("imagesText").innerHTML = imagesText;
-    } else {
+    }
+
+    if (shortNum < 6 && frameCount % 12 == 0) {
         document.getElementById("short" + shortNum).style.opacity = "1";
         document.getElementById("short" + (5 + shortNum)).style.opacity = "1";
         shortNum++;
@@ -67,17 +70,15 @@ function updateText() {
 
 function draw() {
     // initial "if" being separated makes the check faster once the function has finished running... I think
-    if (frameCount < 180) { // 180 -> 200
+    // if (frameCount < 180) { // 180 -> 200
         if (frameCount < 140) { // 140 -> 160
             if (frameCount % 4 == 0 && frameCount > 15) {
                 updateText();
             }
-        } else {
-            if (frameCount % 8 == 0) {
-                updateText();
-            }
-        }
-    }
+        } /*else if (frameCount % 8 == 0) {
+            updateText();
+        }*/
+    // }
 
     if (mode) {
         background(0,0,0,10); // more trail
@@ -118,7 +119,7 @@ function draw() {
     } else {
         rot = 0;
     }
-    // document.getElementById("angle").innerHTML = Math.round(rot);
+    document.getElementById("angle").innerHTML = rot;
     
     stroke(r,g,b);
 
