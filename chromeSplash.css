@@ -11,6 +11,8 @@ body {
 }
 
 header {
+    margin-top: 10px;
+
     min-width: 950px;
     nav {
         text-align: right;
@@ -186,7 +188,7 @@ a:hover, a:active {
 }
 
 #welcomeText {
-    margin-top: 60px;
+    margin-top: 50px;
 }
 
 #searchBox {
