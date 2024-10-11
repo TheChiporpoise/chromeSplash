@@ -133,10 +133,6 @@ function draw() {
                 point(
                     circR * cos(radians(rot + (intAng * (6 + s + shapeNum)))) + center.x,
                     circR * sin(radians(rot + (intAng * shapeNum))) + center.y);
-                point(
-                    circR * cos(radians(rot + (intAng * (s + shapeNum + 1)))) + center.x,
-                    circR * sin(radians(rot + (intAng * (shapeNum + 1)))) + center.y
-                );
             } else {
                 // add 6 or 11 to "s + shapeNum" in the first point for interesting results
                 line(
