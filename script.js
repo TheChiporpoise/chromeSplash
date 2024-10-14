@@ -61,7 +61,7 @@ function updateText() {
         document.getElementById("imagesText").innerHTML = imagesText;
     }
 
-    if (shortNum < 6 && frameCount % 12 == 0) {
+    if (shortNum < 6 && frameCount % 8 == 0) {
         document.getElementById("short" + shortNum).style.opacity = "1";
         document.getElementById("short" + (5 + shortNum)).style.opacity = "1";
         shortNum++;
@@ -127,6 +127,7 @@ function draw() {
 
     const intAng = 360 / ns;
 
+    // s = 0;
     for (var shapeNum = 0; shapeNum <= ns; shapeNum++) {
         for (var s = 0; s < ns; s++) {
             if (mode) {
@@ -144,6 +145,9 @@ function draw() {
             }
         }
     }
+    // comment out nested for loop, "rot" if statement, background if statement, and uncomment the next 2 lines and the "s = 0" to use
+    // circR -= 1;
+    // rot += 0.1;
     
     // background(0,0,0,0);
     // rot += 0.1;
