@@ -70,15 +70,11 @@ function updateText() {
 
 function draw() {
     // initial "if" being separated makes the check faster once the function has finished running... I think
-    // if (frameCount < 180) { // 180 -> 200
-        if (frameCount < 140) { // 140 -> 160
-            if (frameCount % 4 == 0 && frameCount > 15) {
-                updateText();
-            }
-        } /*else if (frameCount % 8 == 0) {
+    if (frameCount < 140) {
+        if (frameCount % 4 == 0 && frameCount > 15) {
             updateText();
-        }*/
-    // }
+        }
+    }
 
     if (mode) {
         background(0,0,0,10); // more trail

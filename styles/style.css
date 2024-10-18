@@ -60,8 +60,6 @@ aside {
     flex-direction: column;
 }
 .tile {
-    width: 50%;
-    min-width: 475px;
     margin-top: 20px;
 
     display: flex;
