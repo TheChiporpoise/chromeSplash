@@ -44,6 +44,7 @@ var welcomeText = "_", wText_Store = ["W_","We_","Wel_","Welc_","Welco_","Welcom
 // var welcomeText = "_", wText_Store = ["K_","Kn_","Kno_","Knoc_","Knock_","Knock,_","Knock, _","Knock, K_","Knock, Kn_","Knock, Kno_","Knock, Knoc_","Knock, Knock"]; // 12
 var searchText = "_", sText_Store = ["S_","Se_","Sea_","Sear_","Searc_","Search_","Search _","Search G_","Search Go_","Search Goo_","Search Goog_","Search Googl_","Search Google"]; // 13
 var mailText = "_", mText_Store = ["G_","Gm_","Gma_","Gmai_","Gmail"]; // 5
+var docsText = "_", dText_Store = ["D_","Do_","Doc_","Docs"]; // 4
 var imagesText = "_", iText_Store = ["I_","Im_","Ima_","Imag_","Image_","Images"]; // 6
 var shortNum = 1;
 function updateText() {
@@ -56,7 +57,10 @@ function updateText() {
     } else if (mailText[mailText.length - 1] == "_") {
         mailText = mText_Store[mailText.length - 1];
         document.getElementById("mailText").innerHTML = mailText;
-    } else /*if (imagesText[imagesText.length - 1] == "_")*/ {
+    } else if (docsText[docsText.length - 1] == "_") {
+        docsText = dText_Store[docsText.length - 1];
+        document.getElementById("docsText").innerHTML = docsText;
+    }  else /*if (imagesText[imagesText.length - 1] == "_")*/ {
         imagesText = iText_Store[imagesText.length - 1];
         document.getElementById("imagesText").innerHTML = imagesText;
     }
@@ -70,7 +74,7 @@ function updateText() {
 
 function draw() {
     // initial "if" being separated makes the check faster once the function has finished running... I think
-    if (frameCount < 140) {
+    if (frameCount < 160) {
         if (frameCount % 4 == 0 && frameCount > 15) {
             updateText();
         }
