@@ -88,11 +88,11 @@ function draw() {
         strokeWeight(1)
     }
 
-    if (r > 0 && r <= 255 && b == 0) {
+    if (r > 0 && b == 0) {
         (g < 255) ? g += 5 : r -= 5;
-    } else if (g > 0 && g <= 255) {
+    } else if (g > 0 && r == 0) {
         (b < 255) ? b += 5 : g -= 5;
-    } else if (b > 0 && b <= 255) {
+    } else if (b > 0 && g == 0) {
         (r < 255) ? r += 5 : b -= 5;
     }
 
