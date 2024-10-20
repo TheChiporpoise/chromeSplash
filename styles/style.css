@@ -3,6 +3,9 @@
 } */
 
 body {
+    margin: 0;
+    min-width: 1024px;
+
     font-family: 'Courier New', Courier, monospace;
     font-size: 81.25%;
 
@@ -11,13 +14,15 @@ body {
     color: white;
     font-size: 25px;
 
-    margin: 0;
 }
 
 header {
     margin-top: 10px;
 
     min-width: 950px;
+
+    /* display: flex;
+    justify-content: space-between; */
 }
 header nav {
     text-align: right;
@@ -136,7 +141,7 @@ canvas {
     background-color: black;
     z-index: -1;
 
-    /* min-width: 950px; */
+    min-width: 1024px;
 }
 
 button {
