@@ -20,10 +20,13 @@ function refresh() {
     background(0,0,0,500)
 }
 
-var A = 60, circR = Math.round(Math.min(window.innerHeight,window.innerWidth) / 3), inR = Math.round(circR / 2);
+// intAng = 144 for star
+var A = 60, intAng = 120, circR = Math.round(Math.min(window.innerHeight,window.innerWidth) / 3), inR = Math.round(circR / 2);
 function nS() {
     refresh()
     document.getElementById("ns").innerHTML = ns;
+
+    intAng = 360 / ns;
     A = (180 * (ns - 2)) / ns;
     inR = (circR * sin(A / 2));
     nsStore = ns;
@@ -114,38 +117,36 @@ function draw() {
     }
     
     if (paused) {
-    } else if (rot < 180 - A) {
+    } else if (rot < intAng) {
         (0 < rotDir) ? rot += 0.5 : rot -= 0.5;
     } else {
         rot = 0;
     }
-    // document.getElementById("angle").innerHTML = rot;
+    // document.getElementById("angle").innerHTML = intAng;
     
     stroke(r,g,b);
 
     // point(center.x,center.y) // screen center test
 
-    const intAng = 360 / ns;
-
-    // s = 0;
+    // shapeNum = 0;
     for (var shapeNum = 0; shapeNum <= ns; shapeNum++) {
         for (var s = 0; s < ns; s++) {
             if (mode) {
                 point(
-                    circR * cos(radians(rot + (intAng * (6 + s + shapeNum)))) + center.x,
-                    circR * sin(radians(rot + (intAng * shapeNum))) + center.y);
+                    circR * cos(radians(rot + (intAng * (shapeNum + s)))) + center.x,
+                    circR * sin(radians(rot + (intAng * s))) + center.y);
             } else {
                 // add 6 or 11 to "s + shapeNum" in the first point for interesting results
                 line(
-                    circR * cos(radians(rot + (intAng * (s + shapeNum)))) + center.x,
-                    circR * sin(radians(rot + (intAng * (shapeNum)))) + center.y,
-                    circR * cos(radians(rot + (intAng * (s + shapeNum + 1)))) + center.x,
-                    circR * sin(radians(rot + (intAng * (shapeNum + 1)))) + center.y,
+                    circR * cos(radians(rot + (intAng * (shapeNum + s)))) + center.x,
+                    circR * sin(radians(rot + (intAng * (s)))) + center.y,
+                    circR * cos(radians(rot + (intAng * (shapeNum + s + 1)))) + center.x,
+                    circR * sin(radians(rot + (intAng * (s + 1)))) + center.y,
                 );
             }
         }
     }
-    // comment out nested for loop, "rot" if statement, background if statement, and uncomment the next 2 lines and the "s = 0" to use
+    // comment out outer for loop, "rot" if statement, background if statement, and uncomment the next 2 lines and the "s = 0" to use
     // circR -= 1;
     // rot += 0.1;
     
