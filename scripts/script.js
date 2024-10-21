@@ -117,12 +117,14 @@ function draw() {
     }
     
     if (paused) {
-    } else if (rot < intAng) {
-        (0 < rotDir) ? rot += 0.5 : rot -= 0.5;
     } else {
-        rot = 0;
+        if (rot < intAng) {
+            (0 < rotDir) ? rot += 0.5 : rot -= 0.5;
+        } else {
+            rot = 0;
+        }
     }
-    // document.getElementById("angle").innerHTML = intAng;
+    // document.getElementById("angle").innerHTML = rot;
     
     stroke(r,g,b);
 
@@ -156,7 +158,7 @@ function draw() {
     // point(40 * cos(rot / 10) + 100 * cos(rot * 7 / 10) + 30 * cos(rot / 10) + center.x,40 * sin(rot / 10) + 100 * sin(rot * 7 / 10) + 30 * sin(rot / 10) + center.y);
 }
 
-function windowResized(){
+function windowResized() {
     if (windowWidth > 1023) {
         if (windowHeight > 790) {
             resizeCanvas(windowWidth, windowHeight);
