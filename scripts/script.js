@@ -124,7 +124,7 @@ function draw() {
             rot = 0;
         }
     }
-    // document.getElementById("angle").innerHTML = rot;
+    document.getElementById("angle").innerHTML = window.innerWidth;
     
     stroke(r,g,b);
 
@@ -159,15 +159,13 @@ function draw() {
 }
 
 function windowResized() {
-    if (windowWidth > 1023) {
-        if (windowHeight > 790) {
-            resizeCanvas(windowWidth, windowHeight);
-            center = {
-                "x" : Math.round(window.innerWidth / 2),
-                "y" : Math.round(window.innerHeight / 2)
-            }
-            circR = Math.round(Math.min(window.innerHeight,window.innerWidth) / 3);
-            inR = Math.round(circR / 2);
+    if (window.innerWidth > 1023) {
+        resizeCanvas(windowWidth, windowHeight);
+        center = {
+            "x" : Math.round(window.innerWidth / 2),
+            "y" : Math.round(window.innerHeight / 2)
         }
+        circR = Math.round(Math.min(window.innerHeight,window.innerWidth) / 3);
+        inR = Math.round(circR / 2);
     }
 }

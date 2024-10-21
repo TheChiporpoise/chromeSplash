@@ -198,7 +198,10 @@ a:hover, a:active {
 }
 
 #welcomeText {
-    margin-top: 50px;
+    margin-top: 60px;
+    margin-bottom: 0;
+
+    font-size: 3em;
 }
 
 #searchBox {
