@@ -137,6 +137,7 @@ function draw() {
                     circR * sin(radians(rot + (intAng * s))) + center.y);
             } else {
                 // add 6 or 11 to "s + shapeNum" in the first point for interesting results
+                // multiply the same part (outside the parenthesis) by -1 for even neater results
                 line(
                     circR * cos(radians(rot + (intAng * (shapeNum + s)))) + center.x,
                     circR * sin(radians(rot + (intAng * (s)))) + center.y,
