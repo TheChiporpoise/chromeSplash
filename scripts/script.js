@@ -124,7 +124,7 @@ function draw() {
             rot = 0;
         }
     }
-    document.getElementById("angle").innerHTML = window.innerWidth;
+    // document.getElementById("angle").innerHTML = window.innerWidth;
     
     stroke(r,g,b);
 
