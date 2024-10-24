@@ -146,7 +146,7 @@ function draw() {
             rot = 0;
         }
     }
-    document.getElementById("angle").innerHTML = localStorage.getItem("sideCount");
+    // document.getElementById("test").innerHTML = localStorage.getItem("sideCount");
     
     stroke(r,g,b);
 
