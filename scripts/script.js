@@ -9,11 +9,33 @@ var center = {
     "y" : Math.round(window.innerHeight / 2)
 }
 
+function parsedItem(id=String) {
+    return JSON.parse(localStorage.getItem(id));
+}
+
 // rgb values
 var r = 255, g = 0, b = 0;
 
+
+// settings initialization
+if (parsedItem("sideCount") == null) {
+    localStorage.setItem("sideCount",3)
+}
+if (parsedItem("rotationDirection") == null) {
+    localStorage.setItem("rotationDirection",1)
+}
+if (parsedItem("paused") == null) {
+    localStorage.setItem("paused",false)
+}
+if (parsedItem("mode") == null) {
+    localStorage.setItem("mode",0)
+}
+
 // polygon variables
-var ns = 3, nsStore, rot = 0, rotDir = 1, dirStore, paused = false, pausedStore, mode = 0, modeStore;
+var ns = parsedItem("sideCount"), nsStore;
+var rot = 0, rotDir = parsedItem("rotationDirection"), dirStore;
+var paused = parsedItem("paused"), pausedStore;
+var mode = parsedItem("mode"), modeStore;
 
 // removes screen ghosts
 function refresh() {
@@ -124,7 +146,7 @@ function draw() {
             rot = 0;
         }
     }
-    // document.getElementById("angle").innerHTML = window.innerWidth;
+    document.getElementById("angle").innerHTML = localStorage.getItem("sideCount");
     
     stroke(r,g,b);
 
