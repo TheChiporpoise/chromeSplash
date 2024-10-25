@@ -5,7 +5,29 @@ body {
     color: white;
 }
 
+a:link, a:visited {
+    color: white;
+    padding: 5px;
+    text-align: center;
+    font-size: 2em;
+    text-decoration: none;
+    display: inline-block;
+}
+a:hover {
+    text-decoration: underline;
+    background-color: #202020;
+}
+
+.back {
+    margin: 5px;
+    font-size: 2em;
+}
+
 .input_field {
+    margin: 5px;
+
     width: 150px;
+
+
     text-align: center;
 }

@@ -8,18 +8,21 @@
     <link rel = "stylesheet" href = "styles/settingsStyle.css">
 
     <script src="scripts/settings.js"></script>
+    <script src="scripts/script.js"></script>
 </head>
 <body>
-    <a href="home.html">Back</a>
+    <a class="back" href="home.html">Back</a>
 
     <form onsubmit="updateItem('sideCount_input','sideCount')">
         <input id="sideCount_input" class="input_field" placeholder="Number of Sides" required="required" type="number" min="2" max="30">
         <button>set as default side count</button>
+        <!-- <span id="settings_ns"></span> -->
     </form>
     
     <form onsubmit="updateItem('rotDir_input','rotationDirection')">
         <input id="rotDir_input" class="input_field" placeholder="Direction of rotation" required="required" type="number" min="0" max="1">
         <button>set default direction</button>
+        <!-- <span id="settings_dir"></span> -->
     </form>
 
     <form onsubmit="updateItem('paused_input','paused')">
@@ -27,6 +30,7 @@
         <br>
         <input id="paused_input" class="input_field" placeholder="Paused?" required="required" type="range" min="0" max="1">
         <button>set default pause state</button>
+        <!-- <span id="settings_paused"></span> -->
     </form>
     
     <form onsubmit="updateItem('mode_input','mode')">
@@ -34,6 +38,14 @@
         <br>
         <input id="mode_input" class="input_field" required="required" type="range" min="0" max="1">
         <button>set default pause state</button>
+        <!-- <span id="settings_ns"></span> -->
+    </form>
+
+    <form onsubmit="updateItem('welcome_input','welcomeText')">
+        <span>Welcome text</span>
+        <br>
+        <input id="welcome_input" class="input_field" placeholder="Welcome text" required="required" type="text">
+        <button>set welcome text</button>
     </form>
 
     <!-- <div>

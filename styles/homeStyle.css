@@ -4,12 +4,13 @@
 
 body {
     margin: 0;
+    margin-inline: 15px;
+    padding: 0px;
     min-width: 1024px;
 
     font-family: 'Courier New', Courier, monospace;
     font-size: 81.25%;
 
-    padding: 0px;
     background-color: black;
     color: white;
     font-size: 25px;
@@ -17,20 +18,19 @@ body {
 }
 
 header {
-    margin-top: 10px;
-
     min-width: 950px;
 
     /* display: flex;
     justify-content: space-between; */
 }
 header nav {
+    margin: 0 10px;
+
     position: fixed;
     right: 0;
     top: 0;
 
     text-align: right;
-    margin: 0 10px;
 }
 
 main {
@@ -153,15 +153,17 @@ button {
     background-color: lightgray;
 }
 
+
 a:link, a:visited {
+    margin-top: 20px;
+    padding-inline: 5px;
+
     color: white;
-    padding: 5px;
     text-align: center;
     font-size: medium;
     text-decoration: none;
     display: inline-block;
 }
-
 a:hover, a:active {
     text-decoration: underline;
 }

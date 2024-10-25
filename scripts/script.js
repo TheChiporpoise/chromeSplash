@@ -10,25 +10,47 @@ var center = {
 }
 
 function parsedItem(id=String) {
-    return JSON.parse(localStorage.getItem(id));
+    try {
+        return JSON.parse(localStorage.getItem(id));
+    } catch {
+        return localStorage.getItem(id);
+    }
 }
+
+// for custom welcome message
+function textList_format(text) {
+    var trimText = text.substring(0,20);
+    var raw = trimText.split("");
+    var out = [""];
+    
+    for (i = 0; i < trimText.length; i++) {
+        out.push(out[i].replace("_","")+raw[i]+"_");
+    }
+    out[out.length - 1] = out[out.length - 1].replace("_","");
+    out.shift();
+
+    return out;
+}
+// textList_format("123abc");
 
 // rgb values
 var r = 255, g = 0, b = 0;
 
-
 // settings initialization
 if (parsedItem("sideCount") == null) {
-    localStorage.setItem("sideCount",3)
+    localStorage.setItem("sideCount",3);
 }
 if (parsedItem("rotationDirection") == null) {
-    localStorage.setItem("rotationDirection",1)
+    localStorage.setItem("rotationDirection",1);
 }
 if (parsedItem("paused") == null) {
-    localStorage.setItem("paused",false)
+    localStorage.setItem("paused",false);
 }
 if (parsedItem("mode") == null) {
-    localStorage.setItem("mode",0)
+    localStorage.setItem("mode",0);
+}
+if (parsedItem("welcomeText") == null) {
+    localStorage.setItem("welcomeText","Welcome")
 }
 
 // polygon variables
@@ -39,13 +61,13 @@ var mode = parsedItem("mode"), modeStore;
 
 // removes screen ghosts
 function refresh() {
-    background(0,0,0,500)
+    background(0,0,0,500);
 }
 
 // intAng = 144 for star
 var A = 60, intAng = 120, circR = Math.round(Math.min(window.innerHeight,window.innerWidth) / 3), inR = Math.round(circR / 2);
 function nS() {
-    refresh()
+    refresh();
     document.getElementById("ns").innerHTML = ns;
 
     intAng = 360 / ns;
@@ -65,18 +87,18 @@ function pause() {
 }
 
 // Makes text type out and shortcuts appear sequentially when page is opened/realoaded. Looks metal as freak
-var welcomeText = "_", wText_Store = ["W_","We_","Wel_","Welc_","Welco_","Welcom_","Welcome"] // 7
-// var welcomeText = "_", wText_Store = ["K_","Kn_","Kno_","Knoc_","Knock_","Knock,_","Knock, _","Knock, K_","Knock, Kn_","Knock, Kno_","Knock, Knoc_","Knock, Knock"]; // 12
+// welcomText is set to whatever the user sets it to
+var welcomeText = "_", wText_Store = textList_format(localStorage.getItem("welcomeText"));
 var searchText = "_", sText_Store = ["S_","Se_","Sea_","Sear_","Searc_","Search_","Search _","Search G_","Search Go_","Search Goo_","Search Goog_","Search Googl_","Search Google"]; // 13
 var mailText = "_", mText_Store = ["G_","Gm_","Gma_","Gmai_","Gmail"]; // 5
 var docsText = "_", dText_Store = ["D_","Do_","Doc_","Docs"]; // 4
 var imagesText = "_", iText_Store = ["I_","Im_","Ima_","Imag_","Image_","Images"]; // 6
 var shortNum = 1;
 function updateText() {
-    if (welcomeText[welcomeText.length - 1] == "_") {
-        welcomeText = wText_Store[welcomeText.length - 1];
-        document.getElementById("welcomeText").innerHTML = welcomeText;
-    } else if (searchText[searchText.length - 1] == "_") {
+    // console.log(welcomeText);
+    welcomeText = wText_Store[welcomeText.length - 1];
+    document.getElementById("welcomeText").innerHTML = welcomeText;
+    if (searchText[searchText.length - 1] == "_") {
         searchText = sText_Store[searchText.length - 1];
         document.getElementById("searchBox").placeholder = searchText;
     } else if (mailText[mailText.length - 1] == "_") {
@@ -99,7 +121,7 @@ function updateText() {
 
 function draw() {
     // initial "if" being separated makes the check faster once the function has finished running... I think
-    if (frameCount < 160) {
+    if (frameCount < 132 + (wText_Store.length * 4)) {
         if (frameCount % 4 == 0 && frameCount > 15) {
             updateText();
         }
@@ -107,10 +129,10 @@ function draw() {
 
     if (mode) {
         background(0,0,0,10); // more trail
-        strokeWeight(2)
+        strokeWeight(2);
     } else {
         background(0,0,0,25); // increase to reduce screen burn
-        strokeWeight(1)
+        strokeWeight(1);
     }
 
     if (r > 0 && b == 0) {
