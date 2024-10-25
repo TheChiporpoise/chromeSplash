@@ -1,7 +1,11 @@
 body {
     margin: 0;
+
+    background-color: black;
+    color: white;
 }
 
 .input_field {
-    width: 100px;
+    width: 150px;
+    text-align: center;
 }
