@@ -4,17 +4,37 @@ function setup() {
     frameRate(60);
 }
 
-var center = {
-    "x" : Math.round(window.innerWidth / 2),
-    "y" : Math.round(window.innerHeight / 2)
-}
-
 function parsedItem(id=String) {
     try {
         return JSON.parse(localStorage.getItem(id));
     } catch {
         return localStorage.getItem(id);
     }
+}
+
+function timeNow() {
+    var time = new Date().toString().match(/\d\d:\d\d:\d\d/).toString();
+    var hour = Number(time[0]+time[1]);
+    var period;
+
+    if (11 < hour) {
+        hour = (hour - 12).toString();
+
+        period = " PM";
+        time = time.substring(2,8);
+        time = hour + time;
+    } else {
+        period = " AM";
+    }
+    time = time + period;
+
+    return time;
+}
+// console.log(timeNow())
+
+var center = {
+    "x" : Math.round(window.innerWidth / 2),
+    "y" : Math.round(window.innerHeight / 2)
 }
 
 // for custom welcome message
@@ -126,6 +146,8 @@ function draw() {
             updateText();
         }
     }
+
+    document.getElementById("time").innerHTML = timeNow();
 
     if (mode) {
         background(0,0,0,10); // more trail

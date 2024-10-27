@@ -23,11 +23,15 @@ a:hover {
     font-size: 2em;
 }
 
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 5fr;
+}
+
 .input_field {
     margin: 5px;
-
     width: 150px;
-
 
     text-align: center;
 }

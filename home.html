@@ -11,8 +11,9 @@
 </head>
 
 <body>
-    <a href="settings.html">Settings</a>
     <header>
+        <a href="settings.html">Settings</a><br>
+        <span id="time">00:00:00</span>
         <nav>
             <a id = "mailText" href="https://mail.google.com/mail/?tab=rm&ogbl">_</a>
             <a id = "docsText" href="https://docs.google.com/document/u/0/">_</a>
@@ -151,7 +152,7 @@
             <button type = "button" onclick = "ns += ((ns < 30) ? 1 : 0)">+</button>
             <button type = "button" onclick = "mode = mode ? 0 : 1">Mode</button>
             <!-- <span id = "mode"></span> -->
-            <button type = "button" onclick = "ns = 3; paused = false; rotDir = 1; mode = 0;">Reset</button>
+            <button type = "button" onclick = "ns = parsedItem('sideCount'); rotDir = parsedItem('rotationDirection'); paused = parsedItem('paused'); mode = parsedItem('mode');">Reset</button>
         </div>
         <div style = "display: flex; flex-direction: row; align-items: right; justify-content: right;">
             <span id = "test"></span>

@@ -10,46 +10,50 @@
     <script src="scripts/settings.js"></script>
     <script src="scripts/script.js"></script>
 </head>
-<body>
-    <a class="back" href="home.html">Back</a>
+<body onLoad="update()">
+    <header>
+        <a class="back" href="home.html">Back</a>
+    </header>
+    <main>
+        <div class="grid">
+            <div style="grid-column: 1/2;">
+                <form onsubmit="updateItem('sideCount_input','sideCount'); update()">
+                    <input id="sideCount_input" class="input_field" placeholder="Number of Sides" required="required" type="number" min="2" max="30">
+                    <button>set as default side count</button>
+                    <span>(Current value: <span id="settings_ns"></span>)</span>
+                </form>
+                
+                <form onsubmit="updateItem('rotDir_input','rotationDirection')">
+                    <span>↺0 -- Direction -- 1↻</span><br>
+                    <input id="rotDir_input" class="input_field" placeholder="Direction of rotation" required="required" type="range" min="0" max="1">
+                    <button>set default direction</button>
+                    <span>(Current value: <span id="settings_dir"></span>)</span>
+                </form>
 
-    <form onsubmit="updateItem('sideCount_input','sideCount')">
-        <input id="sideCount_input" class="input_field" placeholder="Number of Sides" required="required" type="number" min="2" max="30">
-        <button>set as default side count</button>
-        <!-- <span id="settings_ns"></span> -->
-    </form>
-    
-    <form onsubmit="updateItem('rotDir_input','rotationDirection')">
-        <input id="rotDir_input" class="input_field" placeholder="Direction of rotation" required="required" type="number" min="0" max="1">
-        <button>set default direction</button>
-        <!-- <span id="settings_dir"></span> -->
-    </form>
+                <form onsubmit="updateItem('paused_input','paused')">
+                    <span>No -- Paused? -- Yes</span><br>
+                    <input id="paused_input" class="input_field" placeholder="Paused?" required="required" type="range" min="0" max="1">
+                    <button>set default pause state</button>
+                    <span>(Current value: <span id="settings_paused"></span>)</span>
+                </form>
+                
+                <form onsubmit="updateItem('mode_input','mode')">
+                    <span>0 --- Mode --- 1</span><br>
+                    <input id="mode_input" class="input_field" required="required" type="range" min="0" max="1">
+                    <button>set default pause state</button>
+                    <span>(Current value: <span id="settings_mode"></span>)</span>
+                </form>
 
-    <form onsubmit="updateItem('paused_input','paused')">
-        <span>No -- Paused? -- Yes</span>
-        <br>
-        <input id="paused_input" class="input_field" placeholder="Paused?" required="required" type="range" min="0" max="1">
-        <button>set default pause state</button>
-        <!-- <span id="settings_paused"></span> -->
-    </form>
-    
-    <form onsubmit="updateItem('mode_input','mode')">
-        <span>Mode</span>
-        <br>
-        <input id="mode_input" class="input_field" required="required" type="range" min="0" max="1">
-        <button>set default pause state</button>
-        <!-- <span id="settings_ns"></span> -->
-    </form>
-
-    <form onsubmit="updateItem('welcome_input','welcomeText')">
-        <span>Welcome text</span>
-        <br>
-        <input id="welcome_input" class="input_field" placeholder="Welcome text" required="required" type="text">
-        <button>set welcome text</button>
-    </form>
-
-    <!-- <div>
-        <button onclick="rot = 0">Reset rotation</button>
-    </div> -->
+                <form onsubmit="updateItem('welcome_input','welcomeText')">
+                    <span>Welcome text</span>
+                    <br>
+                    <input id="welcome_input" class="input_field" placeholder="Welcome text" required="required" type="text">
+                    <button>set welcome text</button>
+                    <span>(Current message: <span id="settings_welcome"></span>)</span>
+                </form>
+                <!-- <hr> -->
+            </div>
+        </div>
+    </main>
 </body>
 </html>
