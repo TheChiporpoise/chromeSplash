@@ -1,5 +1,6 @@
 function setup() {
-    createCanvas(window.innerWidth, window.innerHeight);
+    createCanvas(screen.width, screen.height); // sets canvas to be the maximum size, makes it not need to be resized
+    
     background(0,0,0);
     frameRate(60);
 }
@@ -225,13 +226,21 @@ function draw() {
 }
 
 function windowResized() {
-    if (window.innerWidth > 1023) {
-        resizeCanvas(windowWidth, windowHeight);
-        center = {
-            "x" : Math.round(window.innerWidth / 2),
-            "y" : Math.round(window.innerHeight / 2)
+    if (window.innerWidth > 1023 || window.innerHeight > 650) {
+        refresh();
+        // circR = Math.round(Math.min(window.innerHeight,window.innerWidth) / 3);
+        // inR = Math.round(circR / 2);
+        if (window.innerWidth > 1023) {
+            center = {
+                "x" : Math.round(window.innerWidth / 2),
+                "y" : center.y
+            }
         }
-        circR = Math.round(Math.min(window.innerHeight,window.innerWidth) / 3);
-        inR = Math.round(circR / 2);
+        if (window.innerHeight > 650) {
+            center = {
+                "x" : center.x,
+                "y" : Math.round(window.innerHeight / 2)
+            }
+        }
     }
 }
