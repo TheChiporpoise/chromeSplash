@@ -134,7 +134,7 @@ h1 {
     font-family: 'Courier New', Courier, monospace;
 }
 
-form:focus {
+input:focus {
     outline: none;
 }
 
