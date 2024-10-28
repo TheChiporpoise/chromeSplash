@@ -32,14 +32,14 @@
 
                 <form onsubmit="updateItem('paused_input','paused')">
                     <span>No -- Paused? -- Yes</span><br>
-                    <input id="paused_input" class="input_field" placeholder="Paused?" required="required" type="range" min="0" max="1">
+                    <input id="paused_input" class="input_field" required="required" type="range" min="0" max="1" value="0">
                     <button>set default pause state</button>
                     <span>(Current value: <span id="settings_paused"></span>)</span>
                 </form>
                 
                 <form onsubmit="updateItem('mode_input','mode')">
                     <span>0 --- Mode --- 1</span><br>
-                    <input id="mode_input" class="input_field" required="required" type="range" min="0" max="1">
+                    <input id="mode_input" class="input_field" required="required" type="range" min="0" max="1" value="0">
                     <button>set default pause state</button>
                     <span>(Current value: <span id="settings_mode"></span>)</span>
                 </form>
