@@ -41,6 +41,7 @@ main {
 footer {
     width: 100%;
     min-width: 950px;
+    margin-bottom: 10px;
 
     position: fixed;
     left: 0;
@@ -54,6 +55,8 @@ footer button {
     margin-right: 2px;
     width: auto;
     height: 25px;
+
+    border-radius: 15%;
 }
 footer span {
     margin-left: 7px;
@@ -145,6 +148,8 @@ canvas {
     z-index: -1;
 
     min-width: 1024px;
+    /* only height is subject to change atm */
+    min-height: 700px;
 }
 
 button {
@@ -167,6 +172,7 @@ a:hover, a:active {
 }
 
 .centered {
+    width: 100%;
     display: flex;
     flex-direction: row;
 

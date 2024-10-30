@@ -1,5 +1,6 @@
 function setup() {
-    createCanvas(screen.width, screen.height); // sets canvas to be the maximum size, makes it not need to be resized
+    // createCanvas(screen.width, screen.height - 170); // sets canvas to be the maximum size, makes it not need to be resized
+    createCanvas(window.innerWidth, window.innerHeight);
     
     background(0,0,0);
     frameRate(60);
@@ -20,6 +21,7 @@ function timeNow() {
 
     if (11 < hour) {
         hour = (hour - 12).toString();
+        hour = (hour == "0") ? "12" : hour;
 
         period = " PM";
         time = time.substring(2,8);
@@ -31,7 +33,6 @@ function timeNow() {
 
     return time;
 }
-// console.log(timeNow())
 
 var center = {
     "x" : Math.round(window.innerWidth / 2),
@@ -147,12 +148,11 @@ function draw() {
             updateText();
         }
     }
-
     document.getElementById("time").innerHTML = timeNow();
 
     if (mode) {
         background(0,0,0,10); // more trail
-        strokeWeight(2);
+        strokeWeight(3);
     } else {
         background(0,0,0,25); // increase to reduce screen burn
         strokeWeight(1);
@@ -216,31 +216,30 @@ function draw() {
             }
         }
     }
+
     // comment out outer for loop, "rot" if statement, background if statement, and uncomment the next 2 lines and the "s = 0" to use
     // circR -= 1;
     // rot += 0.1;
     
     // background(0,0,0,0);
-    // rot += 0.1;
+    // strokeWeight(3);
+    // rot += 0.5;
     // point(40 * cos(rot / 10) + 100 * cos(rot * 7 / 10) + 30 * cos(rot / 10) + center.x,40 * sin(rot / 10) + 100 * sin(rot * 7 / 10) + 30 * sin(rot / 10) + center.y);
 }
 
+
+// *********need to figure out how to only resize the dimension being changed, also fix stretching*********
 function windowResized() {
-    if (window.innerWidth > 1023 || window.innerHeight > 650) {
-        refresh();
-        // circR = Math.round(Math.min(window.innerHeight,window.innerWidth) / 3);
-        // inR = Math.round(circR / 2);
-        if (window.innerWidth > 1023) {
-            center = {
-                "x" : Math.round(window.innerWidth / 2),
-                "y" : center.y
-            }
+    // min width 1024
+    // min height 700
+    
+    if (window.innerWidth > 1023 /*|| window.innerHeight > 650*/) {
+        resizeCanvas(windowWidth, windowHeight);
+        center = {
+            "x" : Math.round(window.innerWidth / 2),
+            "y" : Math.round(window.innerHeight / 2)
         }
-        if (window.innerHeight > 650) {
-            center = {
-                "x" : center.x,
-                "y" : Math.round(window.innerHeight / 2)
-            }
-        }
+        circR = Math.round(Math.min(window.innerHeight,window.innerWidth) / 3);
+        inR = Math.round(circR / 2);
     }
 }
