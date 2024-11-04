@@ -158,6 +158,7 @@ function draw() {
         strokeWeight(1);
     }
 
+    // color cycle
     if (r > 0 && b == 0) {
         (g < 255) ? g += 5 : r -= 5;
     } else if (g > 0 && r == 0) {
