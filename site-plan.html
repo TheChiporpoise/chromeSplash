@@ -3,15 +3,15 @@
     
   <head>
     <meta charset="utf-8">
-    <title>Site Plan</title>
+    <title>ChromeSplash plan</title>
     <link type="text/css" rel="stylesheet" href="styles/site-plan.css">
   </head>
 
   <body>
     <header>
-      <h1>[Site name] Site Plan</h1>
-      <h2>FirstName LastName</h2>
-      <h2>WDD 130-[section]</h2>
+      <h1>ChromeSplash Site Plan</h1>
+      <h2>Jakob Hanson</h2>
+      <h2>WDD 130</h2>
       <!-- In the header above, add the name or your site, your name and class number. For example if you are in section 3 you would put WDD 130.03 -->
     </header>
     <main>
@@ -83,9 +83,11 @@
       </h3>
       <!-- Think about how you want your navigation bar to look. In the site-plan.css file change the colors to your colors to get the look you desire. --> 
       <nav>
-        <a href="#">Home</a>
-        <a href="#">Page2</a>
-        <a href="#">Page3</a>
+        <a href="index.html">Home</a>
+        <a href="settings.html">Settings</a>
+        <a href="#">Page1</a> <!-- Informational page 1: How the math works -->
+        <a href="#">Page2</a> <!-- Informational page 2: How the JS works -->
+        <a href="#">Page3</a> <!-- Informational page 3: How the settings work -->
       </nav>
       <hr>
       <h2>
@@ -95,13 +97,19 @@
         <div class="sm-home">
           Home
         </div>
+        <div class="sm-settings">
+          Settings
+        </div>
+        <div class="sm-page1">
+          [Page1] <!-- change this -->
+        </div>
         <div class="sm-page2">
           [Page2] <!-- change this -->
         </div>
         <div class="sm-page3">
           [Page3]  <!-- change this -->
         </div>
-
+        
         <div class="top">
           &nbsp;
         </div>
@@ -119,31 +127,40 @@
       <h2>
         Content
       </h2>
-      <h3>Home page</h3>
+      <h3>[Page 1]</h3>
       <p>
-        [Written copy for the home page here]
+        For any equilateral polygon, an additional amount of polygons (1 less than the amount of points/sides it has) can be created from the x y coordinates of the points of the original polygon. This can be seen in the first image, where the original polygon is an equilateral triangle and the x and y values are graphed, intersecting with each point of each plotted triangle, or viewed in this <a href="https://www.desmos.com/calculator/6iedciuaax">desmos</a>. When the original polygon is rotated, the additional polygons are set in motion as well, and appear to rotate in separate three dimensional planes. For its simplicity, this effect appears quite complex at a glance, which makes this quite appealing from a programming standpoint. This is due in part to a seemingly complex result arising from an easily iterable and relatively non-computationally intensive process, or in other words, easy work cool result.
       </p>
-      <p>Images for the Home page</p>
-        <img src="#" alt="image for homepage">
-        <img src="#" alt="image for homepage">
+      <p>
+        The colors for the background drawings are generated using a conditional statement that iterates through values from 0 to 255 by increments of 5 for the r, g, and b values respectively. The maximum sum of the r, g, and b is 510, peaking only when 2 of the aforementioned variables are both 255. Out of necessity, the conditions also force at least one of the r, g, and b values to be zeroed out until another value zeroes out. This creates a circular flow in the values, allowing the full visible spectrum to be covered. This ultimately yields another layer to how visually appealing the drawing is, or in other words, adds to how cool this looks.
+      </p>
+      <p>Images for the Page 1</p>
+        <img src="page-images/page1_img1.png" alt="image1 for page1">
+        <img src="page-images/page1_img2.png" alt="image2 for page1">
 
       </ul>
       <h3>[Page 2]</h3>
       <p>
-        [Written copy for the Page 2 here]
+        The background is only half the process, there are other visual elements utilized to catch the eye of the user such as all the text being typed out and each of the bookmarks appearing one by one.
+      </p>
+      <p>
+        There are 5 text areas which type out one by one: the Welcome message, the search bar message, the email link title, the secondary link title, and tertiary link title. These are pulled from what the user has set them to be, and on startup each title/message is passed through a function that outputs a list of stages to iterate through to simulate the effect of the text being typed out. For example, if my welcome message is “Hello” the list of iterable stages would look like this: “[‘H_’,‘He_’,‘Hel_’,‘Hell_’,‘Hello’]”. The script is running 60 frames or times each second, so to space out each iteration to emulate realistic typing, each update takes place every 4th frame. The end result: it looks super cool, as intended.
+      </p>
+      <p>
+        Bookmarks are set by users, but we’re concerned with making them appear out of thin air so to speak. By default, the css opacity for each bookmark element is set to 0, making them invisible on startup. In the same function that types out the titles/messages the bookmarks on each side of the screen from top to bottom are revealed by setting their opacities from 0 to 1, popping in one by one. I think you get the point by now, the result looks cool of course.
       </p>
       <p>Images for the Page 2</p>
-        <img src="#" alt="image for page">
-        <img src="#" alt="image for page">
-
+        <img src="#" alt="image1 for page2">
+        <img src="#" alt="image2 for page2">
+      
       </ul>
       <h3>[Page 3]</h3>
       <p>
-        [Written copy for the Page 3 here]
+        The settings page has a variety of initial values that can be adjusted, and then stored on the user’s machine by utilizing the localStorage object in JavaScript, which uses a specified key to set and access that specific value. When the page is initialized, the main JavaScript file accesses the values set by the user and sets them to variables in the script to be used when setting up the page. This includes but is not limited to the Welcome message, the 10 bookmark links, and the 3 primary links. Ultimately this offers the user a large degree of freedom to what they want their page to look like on startup, which is pretty cool.
       </p>
       <p>Images for the Page 3</p>
-        <img src="#" alt="image for page3">
-        <img src="#" alt="image for page3">
+        <img src="#" alt="image1 for page3">
+        <img src="#" alt="image2 for page3">
 
       </ul>
       <hr>
