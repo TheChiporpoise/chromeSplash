@@ -144,23 +144,23 @@
         The background is only half the process, there are other visual elements utilized to catch the eye of the user such as all the text being typed out and each of the bookmarks appearing one by one.
       </p>
       <p>
-        There are 5 text areas which type out one by one: the Welcome message, the search bar message, the email link title, the secondary link title, and tertiary link title. These are pulled from what the user has set them to be, and on startup each title/message is passed through a function that outputs a list of stages to iterate through to simulate the effect of the text being typed out. For example, if my welcome message is “Hello” the list of iterable stages would look like this: “[‘H_’,‘He_’,‘Hel_’,‘Hell_’,‘Hello’]”. The script is running 60 frames or times each second, so to space out each iteration to emulate realistic typing, each update takes place every 4th frame. The end result: it looks super cool, as intended.
+        There are 5 text areas which type out one by one: the Welcome message, the search bar message, the email link title, the secondary link title, and tertiary link title. These are pulled from what the user has set them to be, and on startup each title/message is passed through a function that outputs a list of stages to iterate through to simulate the effect of the text being typed out. For example, if my welcome message is "Hello" the list of iterable stages would look like this: "['H_','He_','Hel_','Hell_','Hello']". The script is running 60 frames or times each second, so to space out each iteration to emulate realistic typing, each update takes place every 4th frame. The end result: it looks super cool, as intended.
       </p>
       <p>
-        Bookmarks are set by users, but we’re concerned with making them appear out of thin air so to speak. By default, the css opacity for each bookmark element is set to 0, making them invisible on startup. In the same function that types out the titles/messages the bookmarks on each side of the screen from top to bottom are revealed by setting their opacities from 0 to 1, popping in one by one. I think you get the point by now, the result looks cool of course.
+        Bookmarks are set by users, but we\'re concerned with making them appear out of thin air so to speak. By default, the css opacity for each bookmark element is set to 0, making them invisible on startup. In the same function that types out the titles/messages the bookmarks on each side of the screen from top to bottom are revealed by setting their opacities from 0 to 1, popping in one by one. I think you get the point by now, the result looks cool of course.
       </p>
       <p>Images for the Page 2</p>
-        <img src="#" alt="image1 for page2">
-        <img src="#" alt="image2 for page2">
+        <img src="page-images/page2_img1.png" alt="image1 for page2">
+        <img src="page-images/page2-img2.png" alt="image2 for page2">
       
       </ul>
       <h3>[Page 3]</h3>
       <p>
-        The settings page has a variety of initial values that can be adjusted, and then stored on the user’s machine by utilizing the localStorage object in JavaScript, which uses a specified key to set and access that specific value. When the page is initialized, the main JavaScript file accesses the values set by the user and sets them to variables in the script to be used when setting up the page. This includes but is not limited to the Welcome message, the 10 bookmark links, and the 3 primary links. Ultimately this offers the user a large degree of freedom to what they want their page to look like on startup, which is pretty cool.
+        The settings page has a variety of initial values that can be adjusted, and then stored on the user\'s machine by utilizing the localStorage object in JavaScript, which uses a specified key to set and access that specific value. When the page is initialized, the main JavaScript file accesses the values set by the user and sets them to variables in the script to be used when setting up the page. This includes but is not limited to the Welcome message, the 10 bookmark links, and the 3 primary links. Ultimately this offers the user a large degree of freedom to what they want their page to look like on startup, which is pretty cool.
       </p>
       <p>Images for the Page 3</p>
-        <img src="#" alt="image1 for page3">
-        <img src="#" alt="image2 for page3">
+        <img src="page-images/page3-img1.png" alt="image1 for page3">
+        <img src="page-images/page3-img2.png" alt="image2 for page3">
 
       </ul>
       <hr>
