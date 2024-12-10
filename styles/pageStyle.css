@@ -84,23 +84,18 @@ img {
 #image2-1 {
     width: 50%;
     
-    float: left; 
-
-    /* filter: brightness(75%); */
+    float: left;
 }
 #image2-2 {
     width: 50%;
     
-    float: right; 
-
-    /* filter: brightness(75%); */
+    float: right;
 }
 
 
 #test_box {
     width: 100%;
     border: 2px solid rgb(26, 33, 79);
-    border-color: rgb(26, 33, 79); /* includes hr color */
     border-radius: 5px;
     padding: 10px;
 
