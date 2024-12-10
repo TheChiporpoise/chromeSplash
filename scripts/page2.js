@@ -22,7 +22,7 @@ var text;
 if (localStorage.getItem("test_text")) {
     text = localStorage.getItem("test_text");
 } else {
-    text = "Placeholder";
+    text = "up to 20 characters";
     localStorage.setItem("test_text", text);
 }
 
