@@ -73,11 +73,56 @@ img {
 
     filter: invert(100%);
 }
-
 #image1-2 {
     width: 50%;
     
     float: right; 
 
     filter: brightness(75%);
+}
+
+#image2-1 {
+    width: 50%;
+    
+    float: left; 
+
+    /* filter: brightness(75%); */
+}
+#image2-2 {
+    width: 50%;
+    
+    float: right; 
+
+    /* filter: brightness(75%); */
+}
+
+
+#test_box {
+    width: 100%;
+    border: 2px solid rgb(26, 33, 79);
+    border-color: rgb(26, 33, 79); /* includes hr color */
+    border-radius: 5px;
+    padding: 10px;
+
+    background-color: rgb(64, 74, 135);
+    color: rgb(26, 33, 79);
+}
+
+main div form {
+    text-align: center;
+}
+
+main div form input, main div form button{
+    border-color: rgb(26, 33, 79);
+    background-color: rgb(148, 159, 232);
+    color: rgb(26, 33, 79);
+
+    border-radius: 5px;
+
+    font-size: 1.1em;
+}
+
+main div form input::placeholder {
+    color: rgb(43, 47, 74);
+    font-size: 1.1em;
 }

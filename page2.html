@@ -6,6 +6,10 @@
     <title>The JavaScript</title>
 
     <link rel = "stylesheet" href = "styles/pageStyle.css">
+
+    <script src="scripts/p5.min.js"></script>
+    <script src="scripts/page2.js"></script>
+    <script src="scripts/settings.js"></script>
 </head>
 <body>
     <header>
@@ -21,23 +25,35 @@
     <main>
         <p>
             The background is only half the process, there are other visual elements utilized to catch the eye of the user such as all the 
-            text being typed out and each of the bookmarks appearing one by one.</p>
+            text being typed out and each of the bookmarks appearing one by one.
+        </p>
+        <div id="test_box">
+            <h1>Type your "Welcome Message" in the box below, and press the enter button!</h1>
+            <hr style="border-color: rgb(26, 33, 79);">
+            <form onsubmit="updateItem('test_input','test_text'); frameCount = 0;">
+                <input id="test_input" class="input_field" placeholder="Enter up to 20 characters" required="required" type="text" style="width: 225px;">
+                <button>Enter</button>
+            </form>
+            <p id="test_output" style="justify-self: center;">_</p>
+        </div>
+        <img id="image2-1" src="page-images/page2_img1.png" alt="Example of the iterated stages for a custom greeting.">
         <p>
             There are 5 text areas which type out one by one: the Welcome message, the search bar message, the email link title, the secondary 
             link title, and tertiary link title. These are pulled from what the user has set them to be, and on startup each title/message is 
             passed through a function that outputs a list of stages to iterate through to simulate the effect of the text being typed out. For 
-            example, if I set my welcome message as "Hello" the list of iterable stages would look like this: "['H_','He_','Hel_','Hell_','Hello']". 
+            example, if my welcome message was "Hello", the list of iterable stages would look like this: "['H_','He_','Hel_','Hell_','Hello']". 
             The script is running 60 frames or times each second, so to space out each iteration to emulate realistic typing, each update takes 
             place every 4th frame. The end result: it looks super cool, as intended.
         </p>
-        <img src="page-images/page2_img1.png" alt="Example of the iterated stages for a custom greeting.">
+        
         <hr>
+        <img id="image2-2" src="page-images/page2_img2.png" alt="Example of bookmarks">
         <p>
             Bookmarks are set by users, but we're concerned with making them appear out of thin air so to speak. By default, the css opacity for 
             each bookmark element is set to 0, making them invisible on startup. In the same function that types out the titles/messages the 
             bookmarks on each side of the screen from top to bottom are revealed by setting their opacities from 0 to 1, popping in one by one. I 
-            think you get the point by now, the result looks cool of course.</p>
-        <img src="page-images/page2_img2.png" alt="Example of ">
+            think you get the point by now, the result looks cool of course.
+        </p>
     </main>
     <hr>
     <footer>

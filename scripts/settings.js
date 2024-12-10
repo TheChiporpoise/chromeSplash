@@ -9,7 +9,4 @@ function update() {
     document.getElementById("settings_paused").innerHTML = localStorage.getItem("paused") == 1 ? true : false;
     document.getElementById("settings_mode").innerHTML = localStorage.getItem("mode");
     document.getElementById("settings_welcome").innerHTML = localStorage.getItem("welcomeText");
-
-
-
 }
