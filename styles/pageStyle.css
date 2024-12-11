@@ -92,6 +92,17 @@ img {
     float: right;
 }
 
+#image3-1 {
+    width: 50%;
+    
+    float: left;
+}
+#image3-2 {
+    width: 50%;
+    
+    margin-left: 25%;
+    margin-right: 25%;
+}
 
 #test_box {
     width: 100%;
