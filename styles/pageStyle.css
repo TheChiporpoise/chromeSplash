@@ -114,11 +114,11 @@ img {
     color: rgb(26, 33, 79);
 }
 
-main div form {
+.pseudo_form {
     text-align: center;
 }
 
-main div form input, main div form button{
+.pseudo_form input, .pseudo_form button{
     border-color: rgb(26, 33, 79);
     background-color: rgb(148, 159, 232);
     color: rgb(26, 33, 79);
@@ -128,7 +128,8 @@ main div form input, main div form button{
     font-size: 1.1em;
 }
 
-main div form input::placeholder {
+.pseudo_form input::placeholder {
     color: rgb(43, 47, 74);
+    background-color: rgb(148, 159, 232);
     font-size: 1.1em;
 }
