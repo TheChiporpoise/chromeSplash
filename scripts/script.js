@@ -4,6 +4,7 @@ function setup() {
     
     background(0,0,0);
     frameRate(60);
+    // frameRate(20);
 }
 
 function parsedItem(id=String) {
@@ -141,6 +142,16 @@ function updateText() {
     }
 }
 
+// for flower mode, either set to 0 or 1000. Comment out "mode" if, "pause" if, outer for loop, uncomment ns= 30, mode = 1, circR -= 1, and rot += 0.25
+circR = 1000;
+// circR = 0;
+
+ns = 23;
+mode = 1;
+r = 255;
+g = 0;
+b = 150;
+
 function draw() {
     // initial "if" being separated makes the check faster once the function has finished running... I think
     if (frameCount < 132 + (wText_Store.length * 4)) {
@@ -150,22 +161,23 @@ function draw() {
     }
     document.getElementById("time").innerHTML = timeNow();
 
-    if (mode) {
-        background(0,0,0,10); // more trail
-        strokeWeight(3);
-    } else {
-        background(0,0,0,25); // increase to reduce screen burn
-        strokeWeight(1);
-    }
+    // if (mode) {
+    //     background(0,0,0,10); // more trail
+    //     strokeWeight(3);
+    // } else {
+    //     background(0,0,0,25); // increase to reduce screen burn
+    //     strokeWeight(1);
+    // }
 
     // color cycle
-    if (r > 0 && b == 0) {
-        (g < 255) ? g += 5 : r -= 5;
-    } else if (g > 0 && r == 0) {
-        (b < 255) ? b += 5 : g -= 5;
-    } else if (b > 0 && g == 0) {
-        (r < 255) ? r += 5 : b -= 5;
-    }
+    // if (r > 0 && b == 0) {
+    //     (g < 255) ? g += 5 : r -= 5;
+    // } else if (g > 0 && r == 0) {
+    //     (b < 255) ? b += 5 : g -= 5;
+    // } else if (b > 0 && g == 0) {
+    //     (r < 255) ? r += 5 : b -= 5;
+    // }
+    stroke(r,g,b);
 
     if (ns != nsStore) {
         nS();
@@ -184,48 +196,85 @@ function draw() {
         modeStore = mode;
     }
     
-    if (paused) {
-    } else {
-        if (rot < intAng) {
-            (0 < rotDir) ? rot += 0.5 : rot -= 0.5;
-        } else {
-            rot = 0;
-        }
-    }
-    // document.getElementById("test").innerHTML = localStorage.getItem("sideCount");
-    
-    stroke(r,g,b);
+    // if (paused) {
+    // } else {
+    //     if (rot < intAng) {
+    //         (0 < rotDir) ? rot += 0.5 : rot -= 0.5;
+    //     } else {
+    //         rot = 0;
+    //     }
+    // }
+    // if (paused) {
+    // } else {
+    //     if (rot < 360) {
+    //         (0 < rotDir) ? rot += 2 : rot -= 2;
+    //     } else {
+    //         rot = 0;
+    //     }
+    // }
 
     // point(center.x,center.y) // screen center test
 
-    // shapeNum = 0;
-    for (var shapeNum = 0; shapeNum <= ns; shapeNum++) {
+    // strokeWeight(40 * Math.sqrt(circR)); // interesting heat map
+    strokeWeight(40 * (circR / 500) + 1);
+    shapeNum = 0;
+
+    // for (var shapeNum = 0; shapeNum <= ns; shapeNum++) {
         for (var s = 0; s < ns; s++) {
             if (mode) {
                 point(
                     circR * cos(radians(rot + (intAng * (shapeNum + s)))) + center.x,
                     circR * sin(radians(rot + (intAng * s))) + center.y);
             } else {
-                // add 6 or 11 to "s + shapeNum" in the first point for interesting results
+                // add 6 or 11 to "shapeNum + s" in the first point for interesting results
                 // multiply the same part (outside the parenthesis) by -1 for even neater results
                 line(
                     circR * cos(radians(rot + (intAng * (shapeNum + s)))) + center.x,
                     circR * sin(radians(rot + (intAng * (s)))) + center.y,
                     circR * cos(radians(rot + (intAng * (shapeNum + s + 1)))) + center.x,
-                    circR * sin(radians(rot + (intAng * (s + 1)))) + center.y,
+                    circR * sin(radians(rot + (intAng * (s + 1)))) + center.y
                 );
             }
         }
-    }
+    // }
 
-    // comment out outer for loop, "rot" if statement, background if statement, and uncomment the next 2 lines and the "s = 0" to use
-    // circR -= 1;
-    // rot += 0.1;
+    // comment out outer for loop, "rot" if statement, mode if statement, and pause if statement,
+    // also uncomment the next if statement, the strokeWeight and "shapeNum = 0" to use
+    if (0 < circR) {
+        circR -= 2;
+        rot += 0.25; // smooth spiral
+        // rot =  (Math.round(frameCount / 60) % 2 == 0) ? rot + 0.25 : rot; // zigzag
+        if ((frameCount / 2) % 4 == 0) {
+            // g = Math.abs(g - 255);
+            if (r > 0 && b == 0) {
+                (g < 255) ? g += 5 : r -= 5;
+            } else if (g > 0 && r == 0) {
+                (b < 255) ? b += 5 : g -= 5;
+            } else if (b > 0 && g == 0) {
+                (r < 255) ? r += 5 : b -= 5;
+            }
+        }
+    }
     
-    // background(0,0,0,0);
+    // background(0,0,0,5);
     // strokeWeight(3);
-    // rot += 0.5;
+    // rot += 0.1;
     // point(40 * cos(rot / 10) + 100 * cos(rot * 7 / 10) + 30 * cos(rot / 10) + center.x,40 * sin(rot / 10) + 100 * sin(rot * 7 / 10) + 30 * sin(rot / 10) + center.y);
+
+    // "equilizer" mode WIP
+    // background(0,0,0,75)
+    // strokeWeight(3);
+    // for (var s = 0; s < 2 * ns; s++) {
+    //     var roff = Math.floor(Math.abs(Math.random() * 100));
+    //     line(
+    //         circR / 4 * cos(radians(s * (180 / ns))) + center.x,
+    //         circR / 4 * sin(radians(s * (180 / ns))) + center.y,
+    //         // circR / 4 * (3 - cos(radians(s * (180 / ns) + rot))) * cos(radians(s * (180 / ns))) + center.x,
+    //         // circR / 4 * (3 - cos(radians(s * (180 / ns) + rot))) * sin(radians(s * (180 / ns))) + center.y
+    //         ((circR / 2) + roff) * cos(radians(s * (180 / ns))) + center.x,
+    //         ((circR / 2) + roff) * sin(radians(s * (180 / ns))) + center.y
+    //     );
+    // }
 }
 
 
