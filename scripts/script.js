@@ -143,14 +143,14 @@ function updateText() {
 }
 
 // for flower mode, either set to 0 or 1000. Comment out "mode" if, "pause" if, outer for loop, uncomment ns= 30, mode = 1, circR -= 1, and rot += 0.25
-circR = 1000;
+// circR = 1000;
 // circR = 0;
 
-ns = 23;
-mode = 1;
-r = 255;
-g = 0;
-b = 150;
+// ns = 23;
+// mode = 1;
+// r = 255;
+// g = 0;
+// b = 150;
 
 function draw() {
     // initial "if" being separated makes the check faster once the function has finished running... I think
@@ -161,22 +161,22 @@ function draw() {
     }
     document.getElementById("time").innerHTML = timeNow();
 
-    // if (mode) {
-    //     background(0,0,0,10); // more trail
-    //     strokeWeight(3);
-    // } else {
-    //     background(0,0,0,25); // increase to reduce screen burn
-    //     strokeWeight(1);
-    // }
+    if (mode) {
+        background(0,0,0,10); // more trail
+        strokeWeight(3);
+    } else {
+        background(0,0,0,25); // increase to reduce screen burn
+        strokeWeight(1);
+    }
 
     // color cycle
-    // if (r > 0 && b == 0) {
-    //     (g < 255) ? g += 5 : r -= 5;
-    // } else if (g > 0 && r == 0) {
-    //     (b < 255) ? b += 5 : g -= 5;
-    // } else if (b > 0 && g == 0) {
-    //     (r < 255) ? r += 5 : b -= 5;
-    // }
+    if (r > 0 && b == 0) {
+        (g < 255) ? g += 5 : r -= 5;
+    } else if (g > 0 && r == 0) {
+        (b < 255) ? b += 5 : g -= 5;
+    } else if (b > 0 && g == 0) {
+        (r < 255) ? r += 5 : b -= 5;
+    }
     stroke(r,g,b);
 
     if (ns != nsStore) {
@@ -196,14 +196,14 @@ function draw() {
         modeStore = mode;
     }
     
-    // if (paused) {
-    // } else {
-    //     if (rot < intAng) {
-    //         (0 < rotDir) ? rot += 0.5 : rot -= 0.5;
-    //     } else {
-    //         rot = 0;
-    //     }
-    // }
+    if (paused) {
+    } else {
+        if (rot < intAng) {
+            (0 < rotDir) ? rot += 0.5 : rot -= 0.5;
+        } else {
+            rot = 0;
+        }
+    }
     // if (paused) {
     // } else {
     //     if (rot < 360) {
@@ -213,13 +213,11 @@ function draw() {
     //     }
     // }
 
-    // point(center.x,center.y) // screen center test
-
     // strokeWeight(40 * Math.sqrt(circR)); // interesting heat map
-    strokeWeight(40 * (circR / 500) + 1);
-    shapeNum = 0;
+    // strokeWeight(40 * (circR / 500) + 1);
+    // shapeNum = 0;
 
-    // for (var shapeNum = 0; shapeNum <= ns; shapeNum++) {
+    for (var shapeNum = 0; shapeNum <= ns; shapeNum++) {
         for (var s = 0; s < ns; s++) {
             if (mode) {
                 point(
@@ -236,25 +234,26 @@ function draw() {
                 );
             }
         }
-    // }
+    }
 
+    // flower mode WIP
     // comment out outer for loop, "rot" if statement, mode if statement, and pause if statement,
     // also uncomment the next if statement, the strokeWeight and "shapeNum = 0" to use
-    if (0 < circR) {
-        circR -= 2;
-        rot += 0.25; // smooth spiral
-        // rot =  (Math.round(frameCount / 60) % 2 == 0) ? rot + 0.25 : rot; // zigzag
-        if ((frameCount / 2) % 4 == 0) {
-            // g = Math.abs(g - 255);
-            if (r > 0 && b == 0) {
-                (g < 255) ? g += 5 : r -= 5;
-            } else if (g > 0 && r == 0) {
-                (b < 255) ? b += 5 : g -= 5;
-            } else if (b > 0 && g == 0) {
-                (r < 255) ? r += 5 : b -= 5;
-            }
-        }
-    }
+    // if (0 < circR) {
+    //     circR -= 2;
+    //     rot += 0.25; // smooth spiral
+    //     // rot =  (Math.round(frameCount / 60) % 2 == 0) ? rot + 0.25 : rot; // zigzag
+    //     if ((frameCount / 2) % 4 == 0) {
+    //         // g = Math.abs(g - 255);
+    //         if (r > 0 && b == 0) {
+    //             (g < 255) ? g += 5 : r -= 5;
+    //         } else if (g > 0 && r == 0) {
+    //             (b < 255) ? b += 5 : g -= 5;
+    //         } else if (b > 0 && g == 0) {
+    //             (r < 255) ? r += 5 : b -= 5;
+    //         }
+    //     }
+    // }
     
     // background(0,0,0,5);
     // strokeWeight(3);
@@ -275,6 +274,42 @@ function draw() {
     //         ((circR / 2) + roff) * sin(radians(s * (180 / ns))) + center.y
     //     );
     // }
+
+    // mouse stuff
+    // strokeWeight(2);
+    // point(mouseX + 30 * Math.random() - 6, mouseY + 30 * Math.random()) - 8; // mouse particles
+    
+    strokeWeight(1);
+    for (var s = 0; s < ns; s++) {
+        if (mode) {
+            point(
+                circR / 10 * cos(radians(rot + (intAng * s))) + mouseX + 6,
+                circR / 10 * sin(radians(rot + (intAng * s))) + mouseY + 8
+            );
+
+            point(
+                circR / 10 * cos(radians(-1 * rot + (intAng * s))) + mouseX + 6,
+                circR / 10 * sin(radians(-1 * rot + (intAng * s))) + mouseY + 8
+            );
+        } else {
+            line(
+                circR / 10 * cos(radians(rot + (intAng * s))) + mouseX + 6,
+                circR / 10 * sin(radians(rot + (intAng * s))) + mouseY + 6,
+                circR / 10 * cos(radians(rot + (intAng * (s + 1)))) + mouseX + 6,
+                circR / 10 * sin(radians(rot + (intAng * (s + 1)))) + mouseY + 8
+            );
+
+            line(
+                circR / 10 * cos(radians(-1 * rot + (intAng * s))) + mouseX + 6,
+                circR / 10 * sin(radians(-1 * rot + (intAng * s))) + mouseY + 8,
+                circR / 10 * cos(radians(-1 * rot + (intAng * (s - 1)))) + mouseX + 6,
+                circR / 10 * sin(radians(-1 * rot + (intAng * (s - 1)))) + mouseY + 8
+            );
+        }
+    }
+
+    
+    
 }
 
 
