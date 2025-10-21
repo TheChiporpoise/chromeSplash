@@ -276,37 +276,37 @@ function draw() {
     // }
 
     // mouse stuff
-    // strokeWeight(2);
-    // point(mouseX + 30 * Math.random() - 6, mouseY + 30 * Math.random()) - 8; // mouse particles
+    strokeWeight(2);
+    point(mouseX + 30 * Math.random() - 10, mouseY + 30 * Math.random()) - 10; // mouse particles
     
-    strokeWeight(1);
-    for (var s = 0; s < ns; s++) {
-        if (mode) {
-            point(
-                circR / 10 * cos(radians(rot + (intAng * s))) + mouseX + 6,
-                circR / 10 * sin(radians(rot + (intAng * s))) + mouseY + 8
-            );
+    // strokeWeight(1);
+    // for (var s = 0; s < ns; s++) {
+    //     if (mode) {
+    //         point(
+    //             circR / 10 * cos(radians(rot + (intAng * s))) + mouseX + 6,
+    //             circR / 10 * sin(radians(rot + (intAng * s))) + mouseY + 8
+    //         );
 
-            point(
-                circR / 10 * cos(radians(-1 * rot + (intAng * s))) + mouseX + 6,
-                circR / 10 * sin(radians(-1 * rot + (intAng * s))) + mouseY + 8
-            );
-        } else {
-            line(
-                circR / 10 * cos(radians(rot + (intAng * s))) + mouseX + 6,
-                circR / 10 * sin(radians(rot + (intAng * s))) + mouseY + 6,
-                circR / 10 * cos(radians(rot + (intAng * (s + 1)))) + mouseX + 6,
-                circR / 10 * sin(radians(rot + (intAng * (s + 1)))) + mouseY + 8
-            );
+    //         point(
+    //             circR / 10 * cos(radians(-1 * rot + (intAng * s))) + mouseX + 6,
+    //             circR / 10 * sin(radians(-1 * rot + (intAng * s))) + mouseY + 8
+    //         );
+    //     } else {
+    //         line(
+    //             circR / 10 * cos(radians(rot + (intAng * s))) + mouseX + 6,
+    //             circR / 10 * sin(radians(rot + (intAng * s))) + mouseY + 6,
+    //             circR / 10 * cos(radians(rot + (intAng * (s + 1)))) + mouseX + 6,
+    //             circR / 10 * sin(radians(rot + (intAng * (s + 1)))) + mouseY + 8
+    //         );
 
-            line(
-                circR / 10 * cos(radians(-1 * rot + (intAng * s))) + mouseX + 6,
-                circR / 10 * sin(radians(-1 * rot + (intAng * s))) + mouseY + 8,
-                circR / 10 * cos(radians(-1 * rot + (intAng * (s - 1)))) + mouseX + 6,
-                circR / 10 * sin(radians(-1 * rot + (intAng * (s - 1)))) + mouseY + 8
-            );
-        }
-    }
+    //         line(
+    //             circR / 10 * cos(radians(-1 * rot + (intAng * s))) + mouseX + 6,
+    //             circR / 10 * sin(radians(-1 * rot + (intAng * s))) + mouseY + 8,
+    //             circR / 10 * cos(radians(-1 * rot + (intAng * (s - 1)))) + mouseX + 6,
+    //             circR / 10 * sin(radians(-1 * rot + (intAng * (s - 1)))) + mouseY + 8
+    //         );
+    //     }
+    // }
 
     
     
