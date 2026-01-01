@@ -277,7 +277,11 @@ function draw() {
 
     // mouse stuff
     strokeWeight(2);
-    point(mouseX + 30 * Math.random() - 10, mouseY + 30 * Math.random()) - 10; // mouse particles
+    point(mouseX + 30 * Math.random() - 10, mouseY + 30 * Math.random() - 6); // mouse particles
+    // point(mouseX - 10, mouseY - 6); // particle testing
+    // point(mouseX - 10, mouseY + 24); // particle testing
+    // point(mouseX + 20, mouseY - 6); // particle testing
+    // point(mouseX + 20, mouseY + 24); // particle testing
     
     // strokeWeight(1);
     // for (var s = 0; s < ns; s++) {
